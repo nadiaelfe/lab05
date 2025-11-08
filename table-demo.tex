@@ -1,0 +1,108 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper, margin=2cm]{geometry}
+\usepackage{booktabs}
+
+\begin{document}
+
+\begin{center}
+\Large \textbf{Laboratory Work №5 — Tables} \\
+\smallskip
+\large Practical Scientific Writing
+\end{center}
+
+\section*{Goal}
+To explore table creation in \LaTeX{} and experiment with alignments, missing/extra items, and the \texttt{\textbackslash multicolumn} command.
+
+\section*{1. Simple Table Example}
+\begin{table}[h!]
+\centering
+\caption{Basic Table with Left Alignment (l)}
+\begin{tabular}{l l l}
+\toprule
+Animal & Food & Size \\
+\midrule
+Dog & Meat & Medium \\
+Horse & Hay & Large \\
+Frog & Flies & Small \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textit{Here, all columns are left-aligned (l).}
+
+\section*{2. Different Alignments}
+Below are examples with center and right alignment:
+
+\begin{table}[h!]
+\centering
+\caption{Center and Right Alignment}
+\begin{tabular}{c c c}
+\toprule
+\textbf{Animal} & \textbf{Food} & \textbf{Size} \\
+\midrule
+Dog & Meat & Medium \\
+Horse & Hay & Large \\
+Frog & Flies & Small \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\caption{Right Alignment (r)}
+\begin{tabular}{r r r}
+\toprule
+Animal & Food & Size \\
+\midrule
+Dog & Meat & Medium \\
+Horse & Hay & Large \\
+Frog & Flies & Small \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textit{Note how the text shifts depending on l/c/r alignment.}
+
+\section*{3. Too Few or Too Many Items}
+\begin{table}[h!]
+\centering
+\caption{Rows with Missing or Extra Items}
+\begin{tabular}{l l l}
+\toprule
+Animal & Food & Size \\
+\midrule
+Dog & Meat \\ % ← Too few (only 2 items)
+Horse & Hay & Large & ExtraColumn \\ % ← Too many (4 items)
+Frog & Flies & Small \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textit{If a row has too few items, LaTeX leaves the missing cells empty.  
+If a row has too many, it will cause a \textbf{“Extra alignment tab has been changed to \textbackslash cr”} warning or error.}
+
+\section*{4. Using \textbackslash multicolumn}
+\begin{table}[h!]
+\centering
+\caption{Using \texttt{\textbackslash multicolumn} to Merge Columns}
+\begin{tabular}{l l l}
+\toprule
+\multicolumn{3}{c}{\textbf{Animals and Food}} \\ % spans across 3 columns
+\midrule
+Animal & Food & Size \\
+\midrule
+Dog & Meat & Medium \\
+Horse & Hay & Large \\
+Frog & Flies & Small \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textit{The header “Animals and Food” spans all three columns using \texttt{\textbackslash multicolumn\{3\}\{c\}\{...\}}.}
+
+\bigskip
+\textit{All experiments completed as per Lab Work №5 instructions.}
+
+\end{document}
+
